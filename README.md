@@ -28,22 +28,22 @@ If the player guesses the number correctly, the game ends with a success message
   - **Correct digits** → digits that exist in the number
   - **Correct positions** → digits in the correct place
 
----
+
 
 ##  Example
+```bash
 Secret number: 1234
 Guess: 1243
 
 Correct digits: 4
 Correct positions: 2
-
+```
 ## Technologies Used
 
 - C++
 - Console (CLI)
 
   
----
 
 ## How to Run
 
@@ -77,4 +77,4 @@ g++ main.cpp Number.cpp -o mastermind
   Eirini Markantoni
 
 
-## 🧠 Example
+
