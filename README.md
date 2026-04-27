@@ -29,7 +29,7 @@ If the player guesses the number correctly, the game ends with a success message
   - **Correct positions** → digits in the correct place
 
 
-
+---
 ##  Example
 ```bash
 Secret number: 1234
@@ -38,6 +38,7 @@ Guess: 1243
 Correct digits: 4
 Correct positions: 2
 ```
+---
 ## Technologies Used
 
 - C++
@@ -60,19 +61,19 @@ Correct positions: 2
 g++ main.cpp Number.cpp -o mastermind
 ./mastermind
 ```
-
+---
 ## Features
 
 - Input validation
 - Prevents invalid numbers
 - Handles duplicate digits correctly
 - Clean game loop with win/lose conditions
-
+---
 ## Notes
 - The screen clears after the first player inputs the number
 - The game runs entirely in the terminal
 - Designed as a beginner-friendly C++ project
-
+---
 ## Author
 Eirini Markantoni
 
