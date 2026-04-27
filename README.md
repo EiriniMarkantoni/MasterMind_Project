@@ -73,8 +73,8 @@ g++ main.cpp Number.cpp -o mastermind
 - The game runs entirely in the terminal
 - Designed as a beginner-friendly C++ project
 
-  ## Author
-  Eirini Markantoni
+## Author
+Eirini Markantoni
 
 
 
