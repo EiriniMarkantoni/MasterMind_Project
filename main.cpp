@@ -3,22 +3,22 @@
 using namespace std;
 
 /*
-    Κύριο πρόγραμμα Mastermind
+    Mastermind Game
 
-    Παίκτης 1: εισάγει μυστικό αριθμό
-    Παίκτης 2: προσπαθεί να τον μαντέψει σε 10 προσπάθειες
+    Player 1: Enters the secret number
+    Player 2: Tries to guess it in 10 attempts
 */
 
 int main() {
-    Number secret;       // μυστικός αριθμός
-    Number guess;        // προσπάθεια παίκτη
+    Number secret;       // Secret number
+    Number guess;        // Player's guess
 
     bool found = false;
 
     cout << "First player: Enter the secret number.\n";
     secret.setNumber();
 
-    // Καθαρισμός οθόνης (Windows)
+    // Clear screen (Windows)
     system("cls");
 
     cout << "Second player: Try to guess the number!\n";
@@ -29,14 +29,14 @@ int main() {
 
         guess.setNumber();
 
-        // Υπολογισμός αποτελεσμάτων
+        // Calculate results
         int correctDigits = right_digits(secret, guess);
         int correctPositions = right_position(secret, guess);
 
         cout << "Correct digits: " << correctDigits << endl;
         cout << "Correct positions: " << correctPositions << endl;
 
-        // Αν είναι σωστός αριθμός > τέλος παιχνιδιού
+        // If the numbers are exactly the same
         if (compare_numbers(secret, guess)) {
             cout << "Congratulations! You guessed the number!\n";
             found = true;
@@ -44,7 +44,7 @@ int main() {
         }
     }
 
-    // Αν δεν βρεθεί σε 10 προσπάθειες
+    // If the player did not guess in 10 attempts
     if (!found) {
         cout << "\nGame Over! You lost.\n";
         cout << "The correct number was: ";
