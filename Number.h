@@ -2,10 +2,10 @@
 #define NUMBER_H
 
 /*
-    Η κλάση Number αναπαριστά έναν τετραψήφιο αριθμό
+    The Number class represents a 4-digit number
 
-    Ο αριθμός αποθηκεύεται ως πίνακας χαρακτήρων (string),
-    ώστε να μπορούμε εύκολα να συγκρίνουμε ψηφίο-ψηφίο
+    The number is stored as a string,
+    so we can easily compare digit by digit
 */
 
 #include <string>
@@ -13,35 +13,38 @@ using namespace std;
 
 class Number {
 private:
-    string number;  // αποθηκεύει τον 4ψήφιο αριθμό (π.χ. "1234")
+    string number;  // Stores the 4-digit number (e.g. "1234")
 
 public:
 
-    // Constructor: αρχικοποιεί τον αριθμό σε κενό
+    // Constructor: initializes the number as empty
     Number();
 
     /*
-        Διαβάζει αριθμό από τον χρήστη με έλεγχο εγκυρότητας:
-        - πρέπει να είναι 4 ψηφία
-        - μόνο αριθμοί
-        - δεν επιτρέπεται να ξεκινά με 0
+        Reads a number from the user with validation:
+        - must contain exactly 4 digits
+        - only numeric characters are allowed
+        - cannot start with 0
     */
     void setNumber();
 
-    // Εκτυπώνει τον αριθμό
+    // Prints the number
     void printNumber() const;
 
     /*
-        Φιλικές συναρτήσεις για σύγκριση δύο αντικειμένων Number
+        Friend functions used to compare
+        two Number objects
     */
 
-    // Πόσα ψηφία είναι σωστά (όχι απαραίτητα στη σωστή θέση)
+    // Returns how many digits are correct
+    // (not necessarily in the correct position)
     friend int right_digits(const Number& n1, const Number& n2);
 
-    // Πόσα ψηφία είναι σωστά και στη σωστή θέση
+    // Returns how many digits are correct
+    // and in the correct position
     friend int right_position(const Number& n1, const Number& n2);
 
-    // Ελέγχει αν οι αριθμοί είναι ίδιοι
+    // Checks if the two numbers are identical
     friend bool compare_numbers(const Number& n1, const Number& n2);
 };
 
