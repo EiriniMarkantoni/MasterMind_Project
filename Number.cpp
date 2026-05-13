@@ -4,14 +4,14 @@ using namespace std;
 
 /*
     Constructor
-    Αρχικοποιεί τον αριθμό ως κενό string
+    Initializes the number as an empty string
 */
 Number::Number() {
     number = "";
 }
 
 /*
-    Διαβάζει αριθμό από τον χρήστη με έλεγχο εγκυρότητας
+    Reads a number from the user with validation
 */
 void Number::setNumber() {
     bool valid;
@@ -22,16 +22,16 @@ void Number::setNumber() {
         cout << "Give a 4-digit number (first digit not 0): ";
         cin >> number;
 
-        // Έλεγχος μήκους
+        // Check length
         if (number.length() != 4) {
             valid = false;
         } else {
-            // Δεν επιτρέπεται να ξεκινά με 0
+            // First digit cannot be 0
             if (number[0] == '0') {
                 valid = false;
             }
 
-            // Έλεγχος ότι όλα είναι ψηφία
+            // Check that all characters are digits
             for (int i = 0; i < 4; i++) {
                 if (number[i] < '0' || number[i] > '9') {
                     valid = false;
@@ -47,22 +47,23 @@ void Number::setNumber() {
 }
 
 /*
-    Εκτυπώνει τον αριθμό
+    Prints the number
 */
 void Number::printNumber() const {
     cout << number << endl;
 }
 
 /*
-    Υπολογίζει πόσα ψηφία είναι σωστά (χωρίς να λαμβάνει υπόψη τη θέση)
+    Calculates how many digits are correct
+    (without considering their position)
 */
 int right_digits(const Number& n1, const Number& n2) {
     int count = 0;
 
-    bool used1[4] = {false}; // κρατάει ποια ψηφία του n1 έχουν χρησιμοποιηθεί
-    bool used2[4] = {false}; // κρατάει ποια ψηφία του n2 έχουν χρησιμοποιηθεί
+    bool used1[4] = {false}; // Keeps track of used digits from n1
+    bool used2[4] = {false}; // Keeps track of used digits from n2
 
-    // Πρώτα βρίσκουμε τα σωστά στη σωστή θέση
+    // First find digits in the correct position
     for (int i = 0; i < 4; i++) {
         if (n1.number[i] == n2.number[i]) {
             count++;
@@ -70,7 +71,7 @@ int right_digits(const Number& n1, const Number& n2) {
         }
     }
 
-    // Μετά βρίσκουμε σωστά ψηφία σε λάθος θέση
+    // Then find correct digits in wrong positions
     for (int i = 0; i < 4; i++) {
         if (!used2[i]) {
             for (int j = 0; j < 4; j++) {
@@ -87,7 +88,8 @@ int right_digits(const Number& n1, const Number& n2) {
 }
 
 /*
-    Υπολογίζει πόσα ψηφία είναι στη σωστή θέση
+    Calculates how many digits are
+    in the correct position
 */
 int right_position(const Number& n1, const Number& n2) {
     int count = 0;
@@ -102,7 +104,8 @@ int right_position(const Number& n1, const Number& n2) {
 }
 
 /*
-    Ελέγχει αν οι δύο αριθμοί είναι ακριβώς ίδιοι
+    Checks if the two numbers
+    are exactly the same
 */
 bool compare_numbers(const Number& n1, const Number& n2) {
     return right_position(n1, n2) == 4;
